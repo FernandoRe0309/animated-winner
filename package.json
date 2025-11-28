@@ -7,6 +7,7 @@
     "express-session": "^1.18.2",
     "mysql2": "^3.15.3",
     "pdfkit": "^0.17.2"
+    "dotenv": "^16.4.5"
   },
   "name": "mi-tienda",
   "version": "1.0.0",
