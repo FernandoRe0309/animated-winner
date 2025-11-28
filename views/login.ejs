@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <% if (message) { %>
+            <div class="alert alert-info"><%= message %></div>
+        <% } %>
+        
+        <div class="card mb-4">
+            <div class="card-header">Iniciar Sesión</div>
+            <div class="card-body">
+                <form action="/login" method="POST">
+                    <input type="email" name="email" class="form-control mb-2" placeholder="Email" required>
+                    <input type="password" name="password" class="form-control mb-2" placeholder="Contraseña" required>
+                    <button type="submit" class="btn btn-primary w-100">Entrar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Registrarse</div>
+            <div class="card-body">
+                <form action="/register" method="POST">
+                    <input type="text" name="username" class="form-control mb-2" placeholder="Nombre Usuario" required>
+                    <input type="email" name="email" class="form-control mb-2" placeholder="Email" required>
+                    <input type="password" name="password" class="form-control mb-2" placeholder="Contraseña" required>
+                    <button type="submit" class="btn btn-success w-100">Registrarme</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

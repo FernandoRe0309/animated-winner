@@ -1,0 +1,45 @@
+<%- include('partials/header') %>
+<div class="row">
+    <% products.forEach(product => { %>
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <img src="<%= product.image_url %>" class="card-img-top" alt="<%= product.name %>" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title"><%= product.name %></h5>
+                    <p class="card-text text-success">$<%= product.price %></p>
+                    <button onclick="addToCart(<%= product.id %>, '<%= product.name %>', <%= product.price %>, '<%= product.image_url %>')" class="btn btn-primary w-100">Agregar</button>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+</div>
+
+<script>
+    function addToCart(id, name, price, image) {
+        fetch('/add-to-cart', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({id, name, price, image})
+        })
+        .then(res => res.json())
+        .then(data => {
+            alert('Producto agregado');
+            // Aquí podrías actualizar un contador en el header sin recargar
+        });
+    }
+</script>
+<script>
+    function addToCart(id, name, price, image) {
+        fetch('/add-to-cart', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({id, name, price, image})
+        })
+        .then(res => res.json())
+        .then(data => {
+            alert('Producto agregado');
+        });
+    }
+</script>
+<%- include('partials/footer') %>
+</script>
